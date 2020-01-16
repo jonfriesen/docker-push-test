@@ -16,6 +16,7 @@ func main() {
 		return
 	}
 
+	fmt.Println("running run")
 	cmd2 := exec.Command("docker", "run", "hello-world")
 	cmd2.Stdout = os.Stdout
 	cmd2.Stderr = os.Stderr
