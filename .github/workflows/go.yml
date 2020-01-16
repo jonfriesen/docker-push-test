@@ -17,9 +17,9 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Build
-      run: go build -v .
+      run: go build -v -o testbin .
     
     - name: Run
       run: |
-        chmod +x main
-        ./main
+        chmod +x testbin
+        ./testbin
