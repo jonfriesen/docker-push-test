@@ -7,11 +7,19 @@ import (
 )
 
 func main() {
-	fmt.Println("hello, world!")
+	fmt.Println("running pull")
 	cmd := exec.Command("docker", "pull", "hello-world")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	cmd2 := exec.Command("docker", "run", "hello-world")
+	cmd2.Stdout = os.Stdout
+	cmd2.Stderr = os.Stderr
+	if err := cmd2.Run(); err != nil {
 		fmt.Println(err)
 		return
 	}
